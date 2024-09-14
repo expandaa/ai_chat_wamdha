@@ -174,7 +174,7 @@ chat_list.addEventListener("click", (e) => {
 const showloading = (usermessage) => {
   const html = `
         <div class="message_content">
-            <img src="images/bot.svg" alt="">
+            <img src="./bot.svg" alt="">
             <p class="text" style="display: none;"></p>
             <div class="loading">
                 <div class="loading_bar"></div>
