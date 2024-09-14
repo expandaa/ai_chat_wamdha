@@ -205,7 +205,7 @@ const handleOutGoingChat = () => {
   const html = `
     <div class="message outgoing">
       <div class="message_content">
-        <img src="images/user.jpg" alt="">
+        <img src="./user.jpg" alt="">
         <p class="text"></p>
       </div>
     </div>
