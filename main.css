@@ -1,0 +1,1166 @@
+
+body {
+  font-size: 14px; 
+  line-height: 1.5;
+}
+
+
+.chat_list {
+  max-width: 95%; 
+  padding: 0 12px;
+  margin: 0 auto;
+}
+
+
+.chat_list .message .text {
+  font-size: 0.85rem; 
+  line-height: 1.4;
+}
+
+
+.message_content {
+  max-width: 75%;
+  word-wrap: break-word;
+  padding: 8px 12px; 
+  animation: scaleIn 0.3s ease-out;
+}
+
+
+.message_content img {
+  width: 30px; 
+  height: 30px;
+}
+
+
+.typing_input {
+  font-size: 0.85rem; 
+  padding: 8px;
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 13px;
+  }
+  
+  .chat_list .message .text {
+    font-size: 0.8rem;
+  }
+  
+  .message_content {
+    max-width: 85%;
+  }
+  
+  .typing_input {
+    font-size: 0.8rem;
+  }
+}
+
+
+@media (max-width: 480px) {
+  body {
+    font-size: 12px;
+  }
+  
+  .chat_list .message .text {
+    font-size: 0.75rem;
+  }
+  
+  .message_content img {
+    width: 25px;
+    height: 25px;
+  }
+}
+
+
+.message.incoming .message_content {
+  background-color: #f0f4f8; 
+  border-radius: 15px 15px 15px 0; 
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); 
+  margin-left: 10px; 
+  padding: 12px 15px 12px 35px; 
+  transition: all 0.3s ease;
+  position: relative; 
+}
+
+.message.incoming .text {
+  color: #2c3e50;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 5px; 
+  white-space: pre-wrap;
+  word-break: break-word;
+  padding-left: 20px; 
+}
+
+
+.message.incoming .text h2,
+.message.incoming .text h3 {
+  font-weight: bold;
+  margin-top: 15px;
+  margin-bottom: 8px;
+}
+
+.message.incoming .text h2 {
+  font-size: 1.1rem;
+  color: #2980b9;
+}
+
+.message.incoming .text h3 {
+  font-size: 1rem;
+  color: #16a085;
+}
+
+
+.message.incoming .text ul,
+.message.incoming .text ol {
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+
+.message.incoming .text li {
+  margin-bottom: 5px;
+}
+
+
+.message.incoming .text strong {
+  font-weight: bold;
+  color: #e74c3c;
+  text-decoration: none;
+}
+
+
+.message.incoming .text p {
+  margin-bottom: 10px;
+}
+
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.loading_bar {
+  width: 4px;
+  height: 4px;
+  margin: 0 2px;
+  background-color: #3498db;
+  border-radius: 50%;
+  animation: loading 0.5s infinite alternate; /* تقليل مدة الأنيميشن من 0.8s إلى 0.5s */
+}
+
+.loading_bar:nth-child(2) {
+  animation-delay: 0.1s; /* تقليل التأخير من 0.2s إلى 0.1s */
+}
+
+.loading_bar:nth-child(3) {
+  animation-delay: 0.2s; /* تقليل التأخير من 0.4s إلى 0.2s */
+}
+
+@keyframes loading {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-3px); /* تقليل مسافة الحركة من -5px إلى -3px */
+  }
+}
+
+/* تحسين زر النسخ */
+.material-symbols-outlined {
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.2s ease;
+  position: absolute;
+  left: 5px; /* تحريك الأيقونة أكثر إلى اليسار */
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px; /* تعديل حجم الأيقونة */
+  color: #7f8c8d; /* لون رمادي خفيف */
+  opacity: 0.7; /* جعل الأيقونة شبه شفافة عند عدم التحويم */
+}
+
+.material-symbols-outlined:hover {
+  color: #3498db;
+  opacity: 1;
+  transform: translateY(-50%) scale(1.1); /* تكبير الأيقونة قليلاً عند التحويم */
+}
+
+/* تعديل تنسيق فقاعات الدردشة للذكاء الاصطناعي لاستيعاب أيقونة النسخ */
+.message.incoming .message_content {
+  background-color: #f0f4f8;
+  border-radius: 15px 15px 15px 0;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  margin-left: 10px;
+  padding: 12px 15px 12px 30px; /* زيادة التباعد من اليسار لإفساح المجال لأيقونة النسخ */
+  transition: all 0.3s ease;
+  position: relative; /* لضمان أن الأيقونة ستكون نسبية لهذا العنصر */
+}
+
+/* تعديل تنسيق النص داخل فقاعات الدردشة */
+.message.incoming .text {
+  padding-left: 15px; /* تقليل المساحة الإضافية على اليسار للنص */
+}
+
+/* إضافة تأثير التحويم لفقاعات الدردشة */
+.message.incoming .message_content:hover .material-symbols-outlined {
+  opacity: 1; /* إظهار الأيقونة بشكل كامل عند التحويم على الفقاعة */
+}
+
+/* تحسين مظهر النجوم والعناصر الأخرى */
+.message.incoming .text strong {
+  font-weight: bold;
+  color: #e74c3c;
+  text-decoration: none;
+}
+
+.message.incoming .text em {
+  font-style: italic;
+  color: #27ae60;
+}
+
+.message.incoming .text code {
+  background-color: #f1f1f1;
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-family: monospace;
+}
+
+.message.incoming .text a {
+  color: #3498db;
+  text-decoration: underline;
+}
+
+.message.incoming .text blockquote {
+  border-left: 3px solid #95a5a6;
+  padding-left: 10px;
+  margin-left: 0;
+  color: #7f8c8d;
+}
+
+/* تحسين مظهر القوائم */
+.message.incoming .text ul,
+.message.incoming .text ol {
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+
+.message.incoming .text li {
+  margin-bottom: 5px;
+  list-style-type: disc; /* للقوائم غير المرتبة */
+}
+
+.message.incoming .text ol li {
+  list-style-type: decimal; /* للقوائم المرتبة */
+}
+
+/* تنسيق التنبيه المخصص */
+.custom-alert {
+  position: absolute;
+  background-color: #3498db; /* لون أزرق أكثر جاذبية */
+  color: white;
+  padding: 10px 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s, transform 0.3s;
+  z-index: 1000;
+  font-size: 0.9rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  max-width: 250px; /* تحديد عرض أقصى */
+}
+
+.custom-alert::before {
+  content: '✓'; /* إضافة أيقونة صح */
+  margin-right: 10px;
+  font-size: 1.1rem;
+}
+
+.custom-alert.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* إضافة تأثير عند الظهور */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.custom-alert.show {
+  animation: fadeInUp 0.3s ease-out;
+}
+
+/* إضافة فقاعة نصية تظهر لمدة ثانية ونصف عند نسخ النص */
+.copy-bubble {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s, transform 0.3s;
+  z-index: 1000;
+}
+
+.copy-bubble.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* إضافة أنيميشن للفقاعات */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* تطبيق الأنيميشن على فقاعات الدردشة */
+.message {
+  animation: fadeInUp 0.3s ease-out;
+}
+
+.message_content {
+  animation: scaleIn 0.3s ease-out;
+}
+
+/* تعديل حجم الخط الأساسي وجعل الموقع مستجيب */
+body {
+  font-size: 14px; /* تقليل من 16px */
+  line-height: 1.5;
+}
+
+/* تحسين استجابة منطقة الدردشة */
+.chat_list {
+  max-width: 95%; /* تقليل قليلاً من 100% */
+  padding: 0 12px;
+  margin: 0 auto;
+}
+
+/* تعديل حجم الخط في منطقة الدردشة */
+.chat_list .message .text {
+  font-size: 0.85rem; /* تقليل من 0.95rem */
+  line-height: 1.4;
+}
+
+/* تحسين تنسيق فقاعات الدردشة */
+.message_content {
+  max-width: 75%; /* تقليل قليلاً من 80% */
+  word-wrap: break-word;
+  padding: 8px 12px; /* تقليل قليلاً من 10px 15px */
+  animation: scaleIn 0.3s ease-out;
+}
+
+/* تعديل حجم الصور في الدردشة */
+.message_content img {
+  width: 30px; /* تقليل قليلاً من 35px */
+  height: 30px;
+}
+
+/* تحسين تنسيق مربع الإدخال */
+.typing_input {
+  font-size: 0.85rem; /* تقليل من 0.95rem */
+  padding: 8px;
+}
+
+/* إضافة استجابة للشاشات الصغيرة */
+@media (max-width: 768px) {
+  body {
+    font-size: 13px;
+  }
+  
+  .chat_list .message .text {
+    font-size: 0.8rem;
+  }
+  
+  .message_content {
+    max-width: 85%;
+  }
+  
+  .typing_input {
+    font-size: 0.8rem;
+  }
+}
+
+/* إضافة استجابة للشاشات الصغيرة جدًا */
+@media (max-width: 480px) {
+  body {
+    font-size: 12px;
+  }
+  
+  .chat_list .message .text {
+    font-size: 0.75rem;
+  }
+  
+  .message_content img {
+    width: 25px;
+    height: 25px;
+  }
+}
+
+/* تحسين تنسيق فقاعات الدردشة للذكاء الاصطناعي */
+.message.incoming .message_content {
+  background-color: #f0f4f8; /* لون خلفية فاتح للتمييز */
+  border-radius: 15px 15px 15px 0; /* شكل فقاعة مميز */
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* ظل خفيف */
+  margin-left: 10px; /* مسافة من اليسار */
+  padding: 12px 15px 12px 35px; /* زيادة التباعد الداخلي وإفساح المجال لأيقونة النسخ */
+  transition: all 0.3s ease;
+  position: relative; /* لضمان أن الأيقونة ستكون نسبية لهذا العنصر */
+}
+
+.message.incoming .text {
+  color: #2c3e50; /* لون نص داكن للقراءة بسهولة */
+  font-size: 0.9rem; /* حجم خط مناسب */
+  line-height: 1.6; /* زيادة المسافة بين الأسطر */
+  margin-bottom: 5px; /* مسافة أسفل النص */
+  white-space: pre-wrap;
+  word-break: break-word;
+  padding-left: 20px; /* إضافة مساحة إضافية على اليسار للنص */
+}
+
+/* تنسيق العناوين داخل الرد */
+.message.incoming .text h2,
+.message.incoming .text h3 {
+  font-weight: bold;
+  margin-top: 15px;
+  margin-bottom: 8px;
+}
+
+.message.incoming .text h2 {
+  font-size: 1.1rem;
+  color: #2980b9;
+}
+
+.message.incoming .text h3 {
+  font-size: 1rem;
+  color: #16a085;
+}
+
+/* تنسيق القوائم النقطية */
+.message.incoming .text ul,
+.message.incoming .text ol {
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+
+.message.incoming .text li {
+  margin-bottom: 5px;
+}
+
+/* تنسيق النص المؤكد */
+.message.incoming .text strong {
+  font-weight: bold;
+  color: #e74c3c;
+  text-decoration: none;
+}
+
+/* تنسيق الفقرات */
+.message.incoming .text p {
+  margin-bottom: 10px;
+}
+
+/* تحسين أنيميشن التحميل */
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.loading_bar {
+  width: 4px;
+  height: 4px;
+  margin: 0 2px;
+  background-color: #3498db;
+  border-radius: 50%;
+  animation: loading 0.5s infinite alternate; /* تقليل مدة الأنيميشن من 0.8s إلى 0.5s */
+}
+
+.loading_bar:nth-child(2) {
+  animation-delay: 0.1s; /* تقليل التأخير من 0.2s إلى 0.1s */
+}
+
+.loading_bar:nth-child(3) {
+  animation-delay: 0.2s; /* تقليل التأخير من 0.4s إلى 0.2s */
+}
+
+@keyframes loading {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-3px); /* تقليل مسافة الحركة من -5px إلى -3px */
+  }
+}
+
+/* تحسين زر النسخ */
+.material-symbols-outlined {
+  cursor: pointer;
+  transition: color 0.3s ease;
+  position: absolute;
+  left: 10px; /* تحريك الأيقونة إلى اليسار */
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.material-symbols-outlined:hover {
+  color: #3498db;
+}
+
+/* تحسين مظهر النجوم والعناصر الأخرى */
+.message.incoming .text strong {
+  font-weight: bold;
+  color: #e74c3c;
+  text-decoration: none;
+}
+
+.message.incoming .text em {
+  font-style: italic;
+  color: #27ae60;
+}
+
+.message.incoming .text code {
+  background-color: #f1f1f1;
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-family: monospace;
+}
+
+.message.incoming .text a {
+  color: #3498db;
+  text-decoration: underline;
+}
+
+.message.incoming .text blockquote {
+  border-left: 3px solid #95a5a6;
+  padding-left: 10px;
+  margin-left: 0;
+  color: #7f8c8d;
+}
+
+/* تحسين مظهر القوائم */
+.message.incoming .text ul,
+.message.incoming .text ol {
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+
+.message.incoming .text li {
+  margin-bottom: 5px;
+  list-style-type: disc; /* للقوائم غير المرتبة */
+}
+
+.message.incoming .text ol li {
+  list-style-type: decimal; /* للقوائم المرتبة */
+}
+
+/* تنسيق التنبيه المخصص */
+.custom-alert {
+  position: absolute;
+  background-color: #3498db; /* لون أزرق أكثر جاذبية */
+  color: white;
+  padding: 10px 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s, transform 0.3s;
+  z-index: 1000;
+  font-size: 0.9rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  max-width: 250px; /* تحديد عرض أقصى */
+}
+
+.custom-alert::before {
+  content: '✓'; /* إضافة أيقونة صح */
+  margin-right: 10px;
+  font-size: 1.1rem;
+}
+
+.custom-alert.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* إضافة تأثير عند الظهور */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.custom-alert.show {
+  animation: fadeInUp 0.3s ease-out;
+}
+
+/* إضافة فقاعة نصية تظهر لمدة ثانية ونصف عند نسخ النص */
+.copy-bubble {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s, transform 0.3s;
+  z-index: 1000;
+}
+
+.copy-bubble.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* إضافة أنيميشن للفقاعات */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* تطبيق الأنيميشن على فقاعات الدردشة */
+.message {
+  animation: fadeInUp 0.3s ease-out;
+}
+
+.message_content {
+  animation: scaleIn 0.3s ease-out;
+}
+
+/* تحسين تنسيق فقاعات الدردشة للذكاء الاصطناعي */
+.message.incoming .message_content {
+  background-color: #f0f4f8;
+  border-radius: 15px 15px 15px 0;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  margin-left: 10px;
+  padding: 12px 15px;
+  transition: all 0.3s ease;
+}
+
+/* تحسين تنسيق فقاعات الدردشة للمستخدم */
+.message.outgoing .message_content {
+  background-color: #e8f5e9;
+  border-radius: 15px 15px 0 15px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  margin-right: 10px;
+  padding: 12px 15px;
+  transition: all 0.3s ease;
+}
+
+/* إضافة تأثير عند التحويم */
+.message_content:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.message .text span {
+  display: inline-block;
+}
+
+/* تنسيق الهيدر */
+.header {
+  background-color: #f0f4f8;
+  padding: 15px 20px;
+  border-radius: 15px 15px 0 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.header h1 {
+  font-size: 1.5rem;
+  color: #2c3e50;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+}
+
+.header img {
+  width: 30px;
+  height: 30px;
+  margin-left: 10px;
+  animation: scaleIn 0.5s ease-out;
+}
+
+/* تعديل حجم الخط الأساسي وجعل الموقع مستجيب */
+body {
+  font-size: 14px; /* تقليل من 16px */
+  line-height: 1.5;
+}
+
+/* تحسين استجابة منطقة الدردشة */
+.chat_list {
+  max-width: 95%; /* تقليل قليلاً من 100% */
+  padding: 0 12px;
+  margin: 0 auto;
+}
+
+/* تعديل حجم الخط في منطقة الدردشة */
+.chat_list .message .text {
+  font-size: 0.85rem; /* تقليل من 0.95rem */
+  line-height: 1.4;
+}
+
+/* تحسين تنسيق فقاعات الدردشة */
+.message_content {
+  max-width: 75%; /* تقليل قليلاً من 80% */
+  word-wrap: break-word;
+  padding: 8px 12px; /* تقليل قليلاً من 10px 15px */
+  animation: scaleIn 0.3s ease-out;
+}
+
+/* تعديل حجم الصور في الدردشة */
+.message_content img {
+  width: 30px; /* تقليل قليلاً من 35px */
+  height: 30px;
+}
+
+/* تحسين تنسيق مربع الإدخال */
+.typing_input {
+  font-size: 0.85rem; /* تقليل من 0.95rem */
+  padding: 8px;
+}
+
+/* إضافة استجابة للشاشات الصغيرة */
+@media (max-width: 768px) {
+  body {
+    font-size: 13px;
+  }
+  
+  .chat_list .message .text {
+    font-size: 0.8rem;
+  }
+  
+  .message_content {
+    max-width: 85%;
+  }
+  
+  .typing_input {
+    font-size: 0.8rem;
+  }
+}
+
+/* إضافة استجابة للشاشات الصغيرة جدًا */
+@media (max-width: 480px) {
+  body {
+    font-size: 12px;
+  }
+  
+  .chat_list .message .text {
+    font-size: 0.75rem;
+  }
+  
+  .message_content img {
+    width: 25px;
+    height: 25px;
+  }
+}
+
+/* تحسين تنسيق فقاعات الدردشة للذكاء الاصطناعي */
+.message.incoming .message_content {
+  background-color: #f0f4f8; /* لون خلفية فاتح للتمييز */
+  border-radius: 15px 15px 15px 0; /* شكل فقاعة مميز */
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* ظل خفيف */
+  margin-left: 10px; /* مسافة من اليسار */
+  padding: 12px 15px; /* زيادة التباعد الداخلي */
+  transition: all 0.3s ease;
+}
+
+.message.incoming .text {
+  color: #2c3e50; /* لون نص داكن للقراءة بسهولة */
+  font-size: 0.9rem; /* حجم خط مناسب */
+  line-height: 1.6; /* زيادة المسافة بين الأسطر */
+  margin-bottom: 5px; /* مسافة أسفل النص */
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* تنسيق العناوين داخل الرد */
+.message.incoming .text h2,
+.message.incoming .text h3 {
+  font-weight: bold;
+  margin-top: 15px;
+  margin-bottom: 8px;
+}
+
+.message.incoming .text h2 {
+  font-size: 1.1rem;
+  color: #2980b9;
+}
+
+.message.incoming .text h3 {
+  font-size: 1rem;
+  color: #16a085;
+}
+
+/* تنسيق القوائم النقطية */
+.message.incoming .text ul,
+.message.incoming .text ol {
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+
+.message.incoming .text li {
+  margin-bottom: 5px;
+}
+
+/* تنسيق النص المؤكد */
+.message.incoming .text strong {
+  font-weight: bold;
+  color: #e74c3c;
+  text-decoration: none;
+}
+
+/* تنسيق الفقرات */
+.message.incoming .text p {
+  margin-bottom: 10px;
+}
+
+/* تحسين أنيميشن التحميل */
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.loading_bar {
+  width: 4px;
+  height: 4px;
+  margin: 0 2px;
+  background-color: #3498db;
+  border-radius: 50%;
+  animation: loading 0.5s infinite alternate; /* تقليل مدة الأنيميشن من 0.8s إلى 0.5s */
+}
+
+.loading_bar:nth-child(2) {
+  animation-delay: 0.1s; /* تقليل التأخير من 0.2s إلى 0.1s */
+}
+
+.loading_bar:nth-child(3) {
+  animation-delay: 0.2s; /* تقليل التأخير من 0.4s إلى 0.2s */
+}
+
+@keyframes loading {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-3px); /* تقليل مسافة الحركة من -5px إلى -3px */
+  }
+}
+
+/* تحسين زر النسخ */
+.material-symbols-outlined {
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.material-symbols-outlined:hover {
+  color: #3498db;
+}
+
+/* تحسين مظهر النجوم والعناصر الأخرى */
+.message.incoming .text strong {
+  font-weight: bold;
+  color: #e74c3c;
+  text-decoration: none;
+}
+
+.message.incoming .text em {
+  font-style: italic;
+  color: #27ae60;
+}
+
+.message.incoming .text code {
+  background-color: #f1f1f1;
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-family: monospace;
+}
+
+.message.incoming .text a {
+  color: #3498db;
+  text-decoration: underline;
+}
+
+.message.incoming .text blockquote {
+  border-left: 3px solid #95a5a6;
+  padding-left: 10px;
+  margin-left: 0;
+  color: #7f8c8d;
+}
+
+/* تحسين مظهر القوائم */
+.message.incoming .text ul,
+.message.incoming .text ol {
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+
+.message.incoming .text li {
+  margin-bottom: 5px;
+  list-style-type: disc; /* للقوائم غير المرتبة */
+}
+
+.message.incoming .text ol li {
+  list-style-type: decimal; /* للقوائم المرتبة */
+}
+
+/* تنسيق التنبيه المخصص */
+.custom-alert {
+  position: absolute;
+  background-color: #3498db; /* لون أزرق أكثر جاذبية */
+  color: white;
+  padding: 10px 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s, transform 0.3s;
+  z-index: 1000;
+  font-size: 0.9rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  max-width: 250px; /* تحديد عرض أقصى */
+}
+
+.custom-alert::before {
+  content: '✓'; /* إضافة أيقونة صح */
+  margin-right: 10px;
+  font-size: 1.1rem;
+}
+
+.custom-alert.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* إضافة تأثير عند الظهور */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.custom-alert.show {
+  animation: fadeInUp 0.3s ease-out;
+}
+
+/* إضافة فقاعة نصية تظهر لمدة ثانية ونصف عند نسخ النص */
+.copy-bubble {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s, transform 0.3s;
+  z-index: 1000;
+}
+
+.copy-bubble.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* إضافة أنيميشن للفقاعات */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* تطبيق الأنيميشن على فقاعات الدردشة */
+.message {
+  animation: fadeInUp 0.3s ease-out;
+}
+
+.message_content {
+  animation: scaleIn 0.3s ease-out;
+}
+
+/* تحسين تنسيق فقاعات الدردشة للذكاء الاصطناعي */
+.message.incoming .message_content {
+  background-color: #f0f4f8;
+  border-radius: 15px 15px 15px 0;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  margin-left: 10px;
+  padding: 12px 15px;
+  transition: all 0.3s ease;
+}
+
+/* تحسين تنسيق فقاعات الدردشة للمستخدم */
+.message.outgoing .message_content {
+  background-color: #e8f5e9;
+  border-radius: 15px 15px 0 15px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  margin-right: 10px;
+  padding: 12px 15px;
+  transition: all 0.3s ease;
+}
+
+/* إضافة تأثير عند التحويم */
+.message_content:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.message .text span {
+  display: inline-block;
+}
+
+/* تنسيق الهيدر */
+.header {
+  background-color: #f0f4f8;
+  padding: 15px 20px;
+  border-radius: 15px 15px 0 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.header h1 {
+  font-size: 1.5rem;
+  color: #2c3e50;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+}
+
+.header img {
+  width: 30px;
+  height: 30px;
+  margin-left: 10px;
+  animation: scaleIn 0.5s ease-out;
+}
+
+/* أنيميشن للهيدر عند تحميل الصفحة */
+@keyframes headerFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.header {
+  animation: headerFadeIn 0.5s ease-out;
+}
+
+/* تأثير التحويم على الهيدر */
+.header:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.input_wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.file-upload-label {
+  cursor: pointer;
+  margin-right: 10px;
+  font-size: 24px;
+  color: #3498db;
+  transition: color 0.3s ease;
+}
+
+.file-upload-label:hover {
+  color: #2980b9;
+}
+
+/* تعديل موضع زر الإرسال ليكون على اليمين */
+.input_wrapper button {
+  position: absolute;
+  right: 10px;
+}
