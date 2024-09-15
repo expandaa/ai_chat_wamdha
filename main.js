@@ -2,7 +2,7 @@ const typing_input = document.querySelector(".typing_input");
 const form = document.querySelector(".typing-form");
 const chat_list = document.querySelector(".chat_list");
 
-const API_KEY = "";
+
 const API_URL = `https://generativelanguage.googleapis.com/v1/models/gemini-pro:generateContent?key=${API_KEY}`;
 
 const genrateAPIResponse = async (div, usermessage) => {
